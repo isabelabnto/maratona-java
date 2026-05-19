@@ -10,16 +10,16 @@ public class FuncionarioTest01 {
 
         Funcionario funcionario = new Funcionario();
 
-        funcionario.nome = "John";
-        funcionario.idade = 19;
-        funcionario.salario = new double[]{200, 400, 100};
+        funcionario.setNome("Nome");
+        funcionario.setIdade(18);
+        funcionario.setSalario(new double[]{200, 400, 100});
 
         /*for (int i = 0; i < funcionario.salario.length; i++){
             funcionario.salario[i] = scanner.nextDouble();
         }*/
 
-        funcionario.imprimirDados();
-        funcionario.imprimeMediaSalario(funcionario.salario);
+        funcionario.imprime();
+        funcionario.imprimeMediaSalario();
 
         scanner.close();
     }
