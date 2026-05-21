@@ -14,6 +14,8 @@ package academy.devdojo.maratonajava.javacore.Dconstrutores.dominio;
  * - Construtores não tem retorno.
  * - Construtores define regras na criação de um objeto
  * - Sempre inicializado primeiro do que os metódos
+ * - Sintaxe this() só pode ser utilizada em construtores
+ * - this() precisa ser obrigatoriamente a primeira linha dentro de um construtor
  * */
 
 public class Anime {
@@ -21,16 +23,24 @@ public class Anime {
     private String tipo;
     private int episodios;
     private String genero; /* Novo atributo*/
+    private String estudio; /* Novo atributo */
 
     /* Construtor */
     public Anime(String nome, String tipo, int episodios, String genero){
+        this();
         this.nome = nome;
         this.tipo = tipo;
         this.episodios = episodios;
         this.genero = genero;
     }
+    /* Sobrecarga de construtor */
+    public Anime(String nome, String tipo, int episodios, String genero, String estudio){
+        this(nome, tipo, episodios, genero); /* Chama o construtor referenciado primeiro */
+        this.estudio = estudio;
+    }
     public Anime(){
         /* Sobrecarga de construtor*/
+        System.out.println("Construtor sem argumento");
     }
 
     /* Metódo fazendo inicialização de todos os atributos */
