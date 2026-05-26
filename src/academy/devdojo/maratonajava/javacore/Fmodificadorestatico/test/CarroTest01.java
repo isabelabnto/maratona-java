@@ -13,7 +13,8 @@ public class CarroTest01 {
 
         /* Fica claro que está sendo afetado algo da classe num geral e não somente de um objeto individual */
         /* Pertence a classe */
-        Carro.velocidadeLimite = 180;
+//        Carro.velocidadeLimite = 180;
+        Carro.setVelocidadeLimite(180);
 
         c1.imprime();
         c2.imprime();

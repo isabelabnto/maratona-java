@@ -5,6 +5,10 @@ package academy.devdojo.maratonajava.javacore.Fmodificadorestatico.dominio;
 * - Vem depois do modificador de acesso e antes do tipo seguindo as convenções
 * - Ao definir algo estático, aquilo passa a ser da classe e não do objeto individual em si
 * - Todos os objetos vão compartilhar do mesmo valor
+*
+* Métodos estáticos
+* - Não é possivel acessar variaveis não estáticas dentro de metodos estaticos
+* - Boas Práticas: Criar metodo estático quando o metodo não acessa uma variavel/atributo da isntância
 * */
 
 public class Carro {
@@ -12,7 +16,7 @@ public class Carro {
     private double velocidadeMaxima;
     /* Atributo estático */
     /* Pertence a classe*/
-    public static double velocidadeLimite = 250;
+    private static double velocidadeLimite = 250; /* Atributo que pertence a classe. Estático */
 
     public void imprime(){
         System.out.println("--------------");
@@ -23,6 +27,16 @@ public class Carro {
 
         /*Forma correta de trabalhar um atributo estático */
         System.out.println("Velocidade limite " + Carro.velocidadeLimite); /* Dessa forma se refere ao atributo da classe*/
+    }
+
+    /* Set metódo estatico */
+    public static void setVelocidadeLimite(double velocidadeLimite) { /* velocidadeLimite é um atributo estático*/
+        /* this.velocidadeLimite = velocidadeLimite*/
+        Carro.velocidadeLimite = velocidadeLimite;
+    }
+
+    public static double getVelocidadeLimite() {
+        return Carro.velocidadeLimite;
     }
 
     public Carro(String nome, double velocidadeMaxima) {
@@ -36,10 +50,6 @@ public class Carro {
 
     public double getVelocidadeMaxima() {
         return velocidadeMaxima;
-    }
-
-    public double getVelocidadeLimite() {
-        return velocidadeLimite;
     }
 
     public void setNome(String nome) {
